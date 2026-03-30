@@ -58,6 +58,15 @@
             text-transform: uppercase;
             color: var(--outline);
         }
+        .back-link {
+            margin-left: auto;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.7; }
         main {
             max-width: 720px;
             margin: 0 auto;
@@ -143,9 +152,10 @@
 
 <header>
     <div class="inner">
-        <a class="logo" href="#">Nomory</a>
+        <a class="logo" href="index.html">Nomory</a>
         <div class="logo-dot"></div>
         <span class="page-label">Privacy Policy</span>
+        <a href="index.html" class="back-link">← Back</a>
     </div>
 </header>
 
