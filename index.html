@@ -158,123 +158,94 @@
             opacity: 0.7;
         }
 
-        /* ── PHONE MOCKUP ── */
-        .mockup-wrapper {
+        /* ── SCREENSHOTS ── */
+        .screenshots-wrapper {
             margin: 80px auto 0;
-            max-width: 340px;
-            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 32px;
+            max-width: 760px;
+            padding: 0 24px;
         }
-        .phone-frame {
-            background: var(--on-surface);
-            border-radius: 48px;
+        .screenshot-item {
+            flex: 1;
+            max-width: 300px;
+        }
+        .screenshot-item.offset {
+            transform: translateY(-40px);
+        }
+        /* iPhone frame */
+        .iphone-frame {
+            position: relative;
+            background: #1C1C1E;
+            border-radius: 52px;
             padding: 14px;
             box-shadow:
-                0 0 0 1px rgba(255,255,255,0.08),
-                0 32px 80px rgba(28,28,25,0.28),
-                0 8px 24px rgba(28,28,25,0.14);
+                0 0 0 1.5px #3A3A3C,
+                0 0 0 3px #1C1C1E,
+                0 40px 100px rgba(28,28,25,0.45),
+                0 8px 24px rgba(28,28,25,0.2);
         }
-        .phone-screen {
-            background: var(--bg);
-            border-radius: 36px;
-            overflow: hidden;
-            aspect-ratio: 9/19.5;
-            display: flex;
-            flex-direction: column;
-        }
-        .phone-status {
-            background: var(--surface);
-            padding: 14px 20px 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--border);
-        }
-        .phone-status-time { font-size: 13px; font-weight: 600; }
-        .phone-status-icons { display: flex; gap: 5px; align-items: center; }
-        .phone-status-icons span { width: 14px; height: 7px; background: var(--on-surface); border-radius: 2px; opacity: 0.8; }
-        .phone-notch {
-            background: var(--on-surface);
-            width: 120px; height: 32px;
-            border-radius: 0 0 20px 20px;
+        .iphone-frame::before {
+            content: '';
             position: absolute;
-            top: 14px; left: 50%; transform: translateX(-50%);
+            top: 14px; left: 50%;
+            transform: translateX(-50%);
+            width: 110px; height: 34px;
+            background: #1C1C1E;
+            border-radius: 0 0 22px 22px;
+            z-index: 2;
         }
-        .phone-content {
-            flex: 1;
-            padding: 16px;
+        /* Dynamic Island */
+        .iphone-frame::after {
+            content: '';
+            position: absolute;
+            top: 18px; left: 50%;
+            transform: translateX(-50%);
+            width: 90px; height: 26px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 3;
+        }
+        .iphone-screen {
+            border-radius: 40px;
             overflow: hidden;
+            display: block;
+            width: 100%;
         }
-        .phone-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
+        .iphone-screen img {
+            width: 100%;
+            display: block;
         }
-        .phone-header-title {
-            font-family: 'Noto Serif', serif;
-            font-style: italic;
-            font-size: 20px;
-            color: var(--primary);
-            font-weight: 700;
+        /* Side buttons */
+        .iphone-btn-right {
+            position: absolute;
+            right: -4px; top: 120px;
+            width: 4px; height: 60px;
+            background: #3A3A3C;
+            border-radius: 0 3px 3px 0;
         }
-        .phone-header-icon {
-            width: 32px; height: 32px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px;
+        .iphone-btn-left-1 {
+            position: absolute;
+            left: -4px; top: 90px;
+            width: 4px; height: 30px;
+            background: #3A3A3C;
+            border-radius: 3px 0 0 3px;
         }
-        .phone-section-label {
-            font-size: 9px;
-            font-weight: 600;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            color: var(--outline);
-            margin-bottom: 8px;
+        .iphone-btn-left-2 {
+            position: absolute;
+            left: -4px; top: 140px;
+            width: 4px; height: 50px;
+            background: #3A3A3C;
+            border-radius: 3px 0 0 3px;
         }
-        .phone-card {
-            background: var(--surface);
-            border-radius: 14px;
-            margin-bottom: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-        }
-        .phone-card-img {
-            width: 48px; height: 48px;
-            border-radius: 10px;
-            flex-shrink: 0;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 22px;
-        }
-        .phone-card-info { flex: 1; min-width: 0; }
-        .phone-card-title { font-size: 11px; font-weight: 600; color: var(--on-surface); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .phone-card-sub { font-size: 9px; color: var(--outline); margin-top: 2px; }
-        .phone-card-rating { font-size: 9px; color: var(--primary); margin-top: 3px; }
-        .phone-tabbar {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            padding: 8px 0 10px;
-            display: flex;
-            justify-content: space-around;
-        }
-        .phone-tab {
-            display: flex; flex-direction: column; align-items: center; gap: 3px;
-            flex: 1;
-        }
-        .phone-tab-icon { font-size: 16px; opacity: 0.4; }
-        .phone-tab-icon.active { opacity: 1; }
-        .phone-tab-add {
-            width: 36px; height: 36px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
-            color: white;
-            margin-top: -8px;
+        .iphone-btn-left-3 {
+            position: absolute;
+            left: -4px; top: 205px;
+            width: 4px; height: 50px;
+            background: #3A3A3C;
+            border-radius: 3px 0 0 3px;
         }
 
         /* ── FEATURES ── */
@@ -456,7 +427,9 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .privacy-inner { grid-template-columns: 1fr; gap: 40px; }
-            .mockup-wrapper { max-width: 260px; }
+            .screenshots-wrapper { gap: 16px; }
+            .screenshot-item.offset { transform: translateY(-20px); }
+            .iphone-frame { border-radius: 40px; padding: 10px; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-links { justify-content: center; }
         }
@@ -499,67 +472,27 @@
         <p class="hero-note">Free · iPhone · iOS 16+</p>
     </div>
 
-    <!-- Phone Mockup -->
-    <div class="mockup-wrapper">
-        <div class="phone-frame">
-            <div class="phone-screen">
-                <div style="position:relative;">
-                    <div class="phone-status">
-                        <span class="phone-status-time">9:41</span>
-                        <div class="phone-status-icons">
-                            <span></span><span style="width:5px;height:5px;border-radius:50%;background:var(--on-surface);opacity:0.8;"></span>
-                        </div>
-                    </div>
+    <!-- Screenshots -->
+    <div class="screenshots-wrapper">
+        <div class="screenshot-item">
+            <div class="iphone-frame">
+                <div class="iphone-btn-right"></div>
+                <div class="iphone-btn-left-1"></div>
+                <div class="iphone-btn-left-2"></div>
+                <div class="iphone-btn-left-3"></div>
+                <div class="iphone-screen">
+                    <img src="screenshot-home.png" alt="Nomory Home Screen">
                 </div>
-                <div class="phone-content">
-                    <div class="phone-header">
-                        <span class="phone-header-title">Nomory</span>
-                        <div class="phone-header-icon">🍴</div>
-                    </div>
-                    <div class="phone-section-label">Recent Bites</div>
-
-                    <div class="phone-card">
-                        <div class="phone-card-img" style="background:#FFF3E0;">🍝</div>
-                        <div class="phone-card-info">
-                            <div class="phone-card-title">Cacio e Pepe</div>
-                            <div class="phone-card-sub">Ristorante Roma · 🇮🇹 Italy</div>
-                            <div class="phone-card-rating">★★★★★</div>
-                        </div>
-                    </div>
-
-                    <div class="phone-card">
-                        <div class="phone-card-img" style="background:#E8F5E9;">🍜</div>
-                        <div class="phone-card-info">
-                            <div class="phone-card-title">Tonkotsu Ramen</div>
-                            <div class="phone-card-sub">Ichiran · 🇯🇵 Japan</div>
-                            <div class="phone-card-rating">★★★★☆</div>
-                        </div>
-                    </div>
-
-                    <div class="phone-card">
-                        <div class="phone-card-img" style="background:#FCE4EC;">🥐</div>
-                        <div class="phone-card-info">
-                            <div class="phone-card-title">Almond Croissant</div>
-                            <div class="phone-card-sub">Café de Flore · 🇫🇷 France</div>
-                            <div class="phone-card-rating">★★★★★</div>
-                        </div>
-                    </div>
-
-                    <div class="phone-card">
-                        <div class="phone-card-img" style="background:#E3F2FD;">🫕</div>
-                        <div class="phone-card-info">
-                            <div class="phone-card-title">Butter Chicken</div>
-                            <div class="phone-card-sub">Bukhara · 🇮🇳 India</div>
-                            <div class="phone-card-rating">★★★★☆</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="phone-tabbar">
-                    <div class="phone-tab"><div class="phone-tab-icon active">🏠</div></div>
-                    <div class="phone-tab"><div class="phone-tab-icon">🔍</div></div>
-                    <div class="phone-tab"><div class="phone-tab-add">+</div></div>
-                    <div class="phone-tab"><div class="phone-tab-icon">📊</div></div>
-                    <div class="phone-tab"><div class="phone-tab-icon">⚙️</div></div>
+            </div>
+        </div>
+        <div class="screenshot-item offset">
+            <div class="iphone-frame">
+                <div class="iphone-btn-right"></div>
+                <div class="iphone-btn-left-1"></div>
+                <div class="iphone-btn-left-2"></div>
+                <div class="iphone-btn-left-3"></div>
+                <div class="iphone-screen">
+                    <img src="screenshot-detail.png" alt="Nomory Dish Detail">
                 </div>
             </div>
         </div>
@@ -576,7 +509,7 @@
         <div class="feature-card">
             <div class="feature-icon">🍴</div>
             <h3 class="feature-title">Capture Every Bite</h3>
-            <p class="feature-desc">Log dishes with photos, ratings, ingredients, and your own tasting notes. Your personal culinary memory, beautifully organized.</p>
+            <p class="feature-desc">Log dishes with photos, ingredients, and your own tasting notes. Your personal culinary memory, beautifully organized.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">📖</div>
