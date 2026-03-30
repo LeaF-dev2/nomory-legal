@@ -165,85 +165,72 @@
             justify-content: center;
             align-items: flex-end;
             gap: 32px;
-            max-width: 760px;
+            max-width: 720px;
             padding: 0 24px;
         }
         .screenshot-item {
             flex: 1;
-            max-width: 300px;
+            max-width: 280px;
         }
         .screenshot-item.offset {
             transform: translateY(-40px);
         }
-        /* iPhone frame */
-        .iphone-frame {
+        .iphone-body {
             position: relative;
-            background: #1C1C1E;
-            border-radius: 52px;
-            padding: 14px;
+            background: #1A1A1A;
+            border-radius: 50px;
+            padding: 12px;
             box-shadow:
-                0 0 0 1.5px #3A3A3C,
-                0 0 0 3px #1C1C1E,
-                0 40px 100px rgba(28,28,25,0.45),
-                0 8px 24px rgba(28,28,25,0.2);
+                0 0 0 1px #3A3A3C,
+                0 40px 80px rgba(0,0,0,0.4),
+                0 8px 20px rgba(0,0,0,0.2);
         }
-        .iphone-frame::before {
-            content: '';
-            position: absolute;
-            top: 14px; left: 50%;
-            transform: translateX(-50%);
-            width: 110px; height: 34px;
-            background: #1C1C1E;
-            border-radius: 0 0 22px 22px;
-            z-index: 2;
-        }
-        /* Dynamic Island */
-        .iphone-frame::after {
-            content: '';
-            position: absolute;
-            top: 18px; left: 50%;
-            transform: translateX(-50%);
-            width: 90px; height: 26px;
-            background: #000;
-            border-radius: 20px;
-            z-index: 3;
-        }
-        .iphone-screen {
+        .iphone-screen-area {
+            position: relative;
             border-radius: 40px;
             overflow: hidden;
-            display: block;
-            width: 100%;
+            background: #000;
         }
-        .iphone-screen img {
+        .iphone-screen-area img {
             width: 100%;
             display: block;
         }
-        /* Side buttons */
-        .iphone-btn-right {
+        .iphone-island {
             position: absolute;
-            right: -4px; top: 120px;
-            width: 4px; height: 60px;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28%;
+            height: 24px;
+            background: #000;
+            border-radius: 16px;
+            z-index: 10;
+        }
+        .iphone-btn-r {
+            position: absolute;
+            right: -4px; top: 100px;
+            width: 4px; height: 64px;
             background: #3A3A3C;
             border-radius: 0 3px 3px 0;
         }
-        .iphone-btn-left-1 {
+        .iphone-btn-l1 {
             position: absolute;
-            left: -4px; top: 90px;
-            width: 4px; height: 30px;
+            left: -4px; top: 80px;
+            width: 4px; height: 28px;
             background: #3A3A3C;
             border-radius: 3px 0 0 3px;
         }
-        .iphone-btn-left-2 {
+        .iphone-btn-l2 {
             position: absolute;
-            left: -4px; top: 140px;
-            width: 4px; height: 50px;
+            left: -4px; top: 124px;
+            width: 4px; height: 56px;
             background: #3A3A3C;
             border-radius: 3px 0 0 3px;
         }
-        .iphone-btn-left-3 {
+        .iphone-btn-l3 {
             position: absolute;
-            left: -4px; top: 205px;
-            width: 4px; height: 50px;
+            left: -4px; top: 196px;
+            width: 4px; height: 56px;
             background: #3A3A3C;
             border-radius: 3px 0 0 3px;
         }
@@ -475,23 +462,25 @@
     <!-- Screenshots -->
     <div class="screenshots-wrapper">
         <div class="screenshot-item">
-            <div class="iphone-frame">
-                <div class="iphone-btn-right"></div>
-                <div class="iphone-btn-left-1"></div>
-                <div class="iphone-btn-left-2"></div>
-                <div class="iphone-btn-left-3"></div>
-                <div class="iphone-screen">
+            <div class="iphone-body">
+                <div class="iphone-btn-r"></div>
+                <div class="iphone-btn-l1"></div>
+                <div class="iphone-btn-l2"></div>
+                <div class="iphone-btn-l3"></div>
+                <div class="iphone-screen-area">
+                    <div class="iphone-island"></div>
                     <img src="screenshot-home.png" alt="Nomory Home Screen">
                 </div>
             </div>
         </div>
         <div class="screenshot-item offset">
-            <div class="iphone-frame">
-                <div class="iphone-btn-right"></div>
-                <div class="iphone-btn-left-1"></div>
-                <div class="iphone-btn-left-2"></div>
-                <div class="iphone-btn-left-3"></div>
-                <div class="iphone-screen">
+            <div class="iphone-body">
+                <div class="iphone-btn-r"></div>
+                <div class="iphone-btn-l1"></div>
+                <div class="iphone-btn-l2"></div>
+                <div class="iphone-btn-l3"></div>
+                <div class="iphone-screen-area">
+                    <div class="iphone-island"></div>
                     <img src="screenshot-detail.png" alt="Nomory Dish Detail">
                 </div>
             </div>
